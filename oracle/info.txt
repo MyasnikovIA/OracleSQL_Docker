@@ -1,0 +1,2 @@
+rem docker run -d --rm -p %PORT_DB%:1521 --name %DOCKER_NAME% --hostname %DOCKER_HOSTNAME%   -e ORACLE_ALLOW_REMOTE=true  -e ORACLE_ENABLE_XDB=true -v "%~dp0oracle":/tempbd %DOCKER_IMAGE%
+rem cp -R /u01/app/oracle /tmpbd

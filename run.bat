@@ -4,8 +4,11 @@ set DOCKER_HOSTNAME=ORACLE-SQL-11
 set ROOT_PATH_DB="%~dp0oracle"
 set PORT_DB=49161
 
-rem docker run -d --rm -p %PORT_DB%:1521  -v %ROOT_PATH_DB%:/opt/oracle/oradata --name %DOCKER_NAME% --hostname %DOCKER_HOSTNAME%   %DOCKER_IMAGE%
-rem docker run -d --rm -p %PORT_DB%:1521 --name %DOCKER_NAME% --hostname %DOCKER_HOSTNAME%   -e ORACLE_ALLOW_REMOTE=true  -e ORACLE_ENABLE_XDB=true -v %ROOT_PATH_DB%:/u01/app/oracle %DOCKER_IMAGE%
+rem ================= Первый запуск  ==================
+rem docker run -d --rm -p %PORT_DB%:1521 --name %DOCKER_NAME% --hostname %DOCKER_HOSTNAME%   -e ORACLE_ALLOW_REMOTE=true  -e ORACLE_ENABLE_XDB=true -v "%~dp0oracle":/tempbd %DOCKER_IMAGE%
+rem cp -R /u01/app/oracle /tmpbd
+rem ===================================================
+
 docker run -d --rm -p %PORT_DB%:1521 --name %DOCKER_NAME% --hostname %DOCKER_HOSTNAME%   -e ORACLE_ALLOW_REMOTE=true  -e ORACLE_ENABLE_XDB=true -v %ROOT_PATH_DB%:/u01/app/oracle %DOCKER_IMAGE%
 
 timeout 10
