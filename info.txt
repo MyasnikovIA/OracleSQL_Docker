@@ -4,6 +4,8 @@ hostname: localhost
 internal port: 49161
 sid: xe
 username: system
+username: sys
+username: sysman
 password: oracle
 
 
